@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#05060f" />
+    <meta name="description" content="Neon Swarm: a wave-survival arena shooter with roguelite upgrades. Plays in the browser on desktop and mobile." />
+    <title>Neon Swarm</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2305060f'/%3E%3Cpath d='M16 4 L26 26 L16 20 L6 26 Z' fill='none' stroke='%233df2ff' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-mode="title">
+    <canvas id="game" aria-label="Neon Swarm game area"></canvas>
+
+    <div class="top-buttons">
+      <button id="btn-mute" class="icon-btn" aria-label="Toggle sound" aria-pressed="false" title="Sound (M)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" /><path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" /><path class="cross" d="M16 9l6 6M22 9l-6 6" /></svg>
+      </button>
+      <button id="btn-pause" class="icon-btn play-only" aria-label="Pause" title="Pause (Esc)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg>
+      </button>
+    </div>
+    <button id="btn-dash" class="dash-btn" aria-label="Dash">DASH</button>
+
+    <section id="screen-title" class="screen">
+      <div class="panel">
+        <h1 class="logo">NEON<span>SWARM</span></h1>
+        <p class="tagline">Survive endless waves. Grab XP. Build your ship.</p>
+        <button id="btn-play" class="primary">Play</button>
+        <ul class="controls">
+          <li><kbd>WASD</kbd> or <kbd>Arrows</kbd> to move, your ship fires on its own</li>
+          <li><kbd>Space</kbd> to dash (you are invulnerable while dashing)</li>
+          <li><kbd>Esc</kbd> pause · <kbd>M</kbd> sound · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> pick upgrades</li>
+          <li class="touch-hint">Touch: drag anywhere to move, tap with a second finger or press DASH</li>
+        </ul>
+        <p class="best">Best score <span id="best-score">0</span></p>
+      </div>
+    </section>
+
+    <section id="screen-levelup" class="screen hidden" aria-live="polite">
+      <div class="panel wide">
+        <h2 id="levelup-title">Level up</h2>
+        <p class="tagline">Choose an upgrade</p>
+        <div id="cards" class="cards"></div>
+      </div>
+    </section>
+
+    <section id="screen-pause" class="screen hidden">
+      <div class="panel">
+        <h2>Paused</h2>
+        <button id="btn-resume" class="primary">Resume</button>
+        <div class="row">
+          <button id="btn-restart">Restart</button>
+          <button id="btn-quit">Main menu</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-over" class="screen hidden">
+      <div class="panel">
+        <h2>Ship destroyed</h2>
+        <p class="score" id="over-score">0</p>
+        <p class="tagline" id="over-stats"></p>
+        <p class="best" id="over-best"></p>
+        <button id="btn-again" class="primary">Play again</button>
+        <button id="btn-menu" class="link">Main menu</button>
+      </div>
+    </section>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

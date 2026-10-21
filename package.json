@@ -1,0 +1,15 @@
+{
+  "name": "neon-swarm",
+  "version": "1.0.0",
+  "description": "Wave-survival arena shooter with roguelite upgrades, written in vanilla JavaScript and Canvas 2D.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes http-server -c-1 -p 8080 .",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
